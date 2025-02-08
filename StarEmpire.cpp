@@ -2,27 +2,17 @@
 //
 
 #include <iostream>
-
-#include <SFML/Graphics.hpp>
+#include "Game.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode({ 200, 200 }), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+	std::cout << "Star Empire v. 0.0.1" << std::endl << "Created by Sergey Omelchenko" << std::endl;
+	Game game;
+	game.init();
+	game.run();
+	game.end();
 
-    while (window.isOpen())
-    {
-        while (const std::optional event = window.pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-                window.close();
-        }
-
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
+	std::cout << "Thank you for your attention to my project." << std::endl << "If you have any suggestions, please send them to my email address: prapor95@yandex.ru";
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
