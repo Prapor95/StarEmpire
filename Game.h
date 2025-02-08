@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include "GUI.h"
 
 #pragma once
 class Game
@@ -11,8 +12,10 @@ public:
 	enum class State { Run, Pause, Close, Menu};
 
 
+
 protected:
 	sf::RenderWindow* Window;
+	GUI gui;
 
 };
 

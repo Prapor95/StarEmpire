@@ -9,29 +9,38 @@ Game::Game():
 void Game::init()
 {
     if (Window == nullptr)
-        Window = new sf::RenderWindow(sf::VideoMode({ 200, 200 }), "4X TBS Lessons");
+        Window = new sf::RenderWindow(sf::VideoMode({ 1200, 1000 }), "4X TBS Lessons");
 }
 
 void Game::run()
 {
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+
 
     while (Window->isOpen())
     {
         while (const std::optional event = Window->pollEvent())
         {
             if (event->is<sf::Event::Closed>())
+            {
                 Window->close();
-        }
+            }
+            if (const auto* resized = event->getIf<sf::Event::Resized>())
+            {
+                 // update the view to the new size of the window
+                 sf::FloatRect visibleArea({ 0.f, 0.f }, sf::Vector2f(resized->size));
+                 Window->setView(sf::View(visibleArea));
+            }
 
-        Window->clear();
-        Window->draw(shape);
-        Window->display();
+            Window->clear();
+            
+            Window->draw(gui);
+            Window->display();
+        }
     }
 }
 
-void Game::end() {
+void Game::end() 
+{
     if (Window != nullptr)
         delete Window;
     Window = nullptr;
