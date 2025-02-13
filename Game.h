@@ -16,6 +16,16 @@ public:
 protected:
 	sf::RenderWindow* Window;
 	GUI gui;
+	sf::Clock Timer;
+	sf::Vector2i MousePos;
+	sf::Vector2f TargetPos;
+	sf::CircleShape Point;
+	float Speed;
+
+
+	void draw();
+	void update(sf::Time elapsed);
+	void eventHandler();
 
 };
 

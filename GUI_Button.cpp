@@ -24,6 +24,7 @@ void GUI_Button::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(RECT);
 	target.draw(*Text);
+	
 }
 
 void GUI_Button::set_position(sf::Vector2f x)
