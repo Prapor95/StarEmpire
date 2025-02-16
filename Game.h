@@ -15,11 +15,15 @@ public:
 
 protected:
 	sf::RenderWindow* Window;
-	GUI gui;
+	GUI* Gui;
 	sf::Clock Timer;
 	sf::Vector2i MousePos;
 	sf::Vector2f TargetPos;
 	sf::CircleShape Point;
+	sf::Vector2f CenterOfView;
+	sf::View GuiView;
+	sf::View GameView;
+
 	float Speed;
 
 

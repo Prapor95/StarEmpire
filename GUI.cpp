@@ -1,6 +1,7 @@
 #include "GUI.h"
 
-GUI::GUI()
+GUI::GUI(sf::RenderWindow& window, sf::View view)
+	:Window(window), View(view)
 {
 	shape.setRadius(50);
 	shape.setFillColor(sf::Color::Blue);
@@ -38,4 +39,16 @@ void GUI::newFunc()
 void GUI::sPos(sf::Vector2f pos)
 {
 	shape.setPosition(pos);
+}
+
+bool GUI::guiClick()
+{
+	bool isClick = false;
+	sf::Vector2f ClickPoint = Window.mapPixelToCoords(sf::Mouse::getPosition(Window), View);
+	for (Gui_Element* n : GE)
+	{
+		if (n->click(ClickPoint))
+			isClick = true;
+	}
+	return isClick;
 }

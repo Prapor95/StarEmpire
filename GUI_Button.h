@@ -7,6 +7,7 @@ public:
     GUI_Button(sf::Font* font, std::string string, sf::Vector2f pos);
     ~GUI_Button();
     void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+    bool click(sf::Vector2f point) override;
     void set_position(sf::Vector2f);
 
 

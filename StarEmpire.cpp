@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include "Game.h"
 
-void main()
+int main()
 {
 	std::cout << "Star Empire v. 0.0.1" << std::endl << "Created by Sergey Omelchenko" << std::endl;
 	Game game;
